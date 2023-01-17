@@ -893,6 +893,29 @@ function smtpRemoveFromUnsubscribe(callback, emails) {
 }
 
 /**
+ * SMTP: resubscribe email
+ *
+ * @param callback
+ * @param email
+ * @param sender
+ * @param lang
+ */
+function smtpResubscribe(callback, email, sender, lang) {
+    if ((email === undefined) || (!email.length)) {
+        return callback(returnError('Empty email'));
+    }
+    if ((sender === undefined) || (!sender.length)) {
+        return callback(returnError('Empty sender'));
+    }
+    var data = {
+        email: email,
+        sender: sender,
+        lang: lang
+    };
+    sendRequest('smtp/resubscribe', 'POST', data, true, callback);
+}
+
+/**
  * Get list of IP
  *
  * @param callback
@@ -1333,6 +1356,7 @@ exports.smtpListEmails = smtpListEmails;
 exports.smtpGetEmailInfoById = smtpGetEmailInfoById;
 exports.smtpUnsubscribeEmails = smtpUnsubscribeEmails;
 exports.smtpRemoveFromUnsubscribe = smtpRemoveFromUnsubscribe;
+exports.smtpResubscribe = smtpResubscribe;
 exports.smtpListIP = smtpListIP;
 exports.smtpListAllowedDomains = smtpListAllowedDomains;
 exports.smtpAddDomain = smtpAddDomain;

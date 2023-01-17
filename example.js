@@ -64,6 +64,7 @@ sendpulse.init(API_USER_ID, API_SECRET, TOKEN_STORAGE, function(token) {
     sendpulse.smtpGetEmailInfoById(answerGetter,'a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1');
     sendpulse.smtpUnsubscribeEmails(answerGetter,[{email:'some@domain.com',comment:'Comment'}]);
     sendpulse.smtpRemoveFromUnsubscribe(answerGetter, ['some@domain.com']);
+    sendpulse.smtpResubscribe(answerGetter, 'some@domain.com', 'some@domain.com', 'en');
     sendpulse.smtpListIP(answerGetter);
     sendpulse.smtpListAllowedDomains(answerGetter);
     sendpulse.smtpAddDomain(answerGetter,'some@domain.com');

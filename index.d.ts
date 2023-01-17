@@ -108,6 +108,8 @@ export function smtpListIP(callback: any): void;
 
 export function smtpRemoveFromUnsubscribe(callback: any, emails: any): any;
 
+export function smtpResubscribe(callback: any, email: string, sender: string, lang: string): any;
+
 export function smtpSendMail(callback: any, email: any): any;
 
 export function smtpUnsubscribeEmails(callback: any, emails: any): any;
